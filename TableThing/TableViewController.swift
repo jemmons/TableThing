@@ -18,6 +18,8 @@ class TableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    
+    //Just a synchronous example. We'd want this to be asyc in practice.
     networkService.fetchPeople { json in
       peopleSection.values = json
     }

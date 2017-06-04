@@ -5,7 +5,6 @@ import UIKit
 public protocol SectionDataSourceProtocol {
   var title: String? {get}
   var numberOfRows: Int {get}
-  var state: DataSourceState {get}
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
 }
 
@@ -15,7 +14,6 @@ public class SectionDataSource<CellType: ResponsibleCell>: SectionDataSourceProt
   public var title: String?
   public var values: [CellType.ValueObject] = []
   private let memo: ExternalMemo<CellIdentifier, UITableView>
-  public private(set) var state: DataSourceState = .ready
   
   
   public var numberOfRows: Int {
